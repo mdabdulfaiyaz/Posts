@@ -18,22 +18,27 @@ function Edit({ postData, updatePostData }) {
     setPostBody(e.target.value);
   };
 
-  const updatingValues = (id) => {
-    const updatedPosts = [...postData];
-    for (let i = 0; i < updatedPosts.length; i++) {
-      if (updatedPosts[i].id === id) {
-        updatedPosts[i].title = title;
-        updatedPosts[i].body = postBody;
+  const updatingValues = (id, title, postBody) => {
+    const updatedPosts = postData.map((post) => {
+      if (post.id === id) {
+        if (title !== "") {
+          post.title = title;
+        }
+        if (postBody !== "") {
+          post.body = postBody;
+        }
       }
-    }
+      return post;
+    });
+
     return updatedPosts;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    updatingValues(parseInt(editId));
-    updatePostData([...postData]);
+    const updatedPosts = updatingValues(parseInt(editId), title, postBody);
+    updatePostData(updatedPosts);
   };
 
   return (
