@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Posts.css";
 
-function Posts({ postData }) {
+function Posts({ postData, updatePostData }) {
   const getPostData = (postsId) => {
     console.log(postsId);
   };
@@ -10,9 +10,12 @@ function Posts({ postData }) {
   if (!postData) {
     return <div>Loading...</div>;
   }
-  const EditPost = (postsId) => {
-    console.log(postsId);
+  const deletePost = (id) => {
+    console.log(id);
+    const deletePosts = postData.filter((post) => post.id !== id);
+    updatePostData(deletePosts);
   };
+
   return (
     <div>
       {postData.map((post) => {
@@ -27,14 +30,16 @@ function Posts({ postData }) {
             >
               <p>{post.body}</p>
             </Link>
+            <Link to={`/edit/${post.id}`} className="delete-btn">
+              Edit
+            </Link>
             <Link
-              to={`/edit/${post.id}`}
-              className="delete-btn"
+              to={`/`}
               onClick={() => {
-                EditPost(post.id);
+                deletePost(post.id);
               }}
             >
-              Edit
+              Delete
             </Link>
           </div>
         );

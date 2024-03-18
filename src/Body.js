@@ -19,6 +19,7 @@ function Body({ postData }) {
           </div>
         ) : null;
       })}
+     
     </div>
   );
 }

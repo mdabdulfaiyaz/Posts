@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, parsePath, useParams } from "react-router-dom";
 import "./Edit.css";
 
 function Edit({ postData, updatePostData }) {
@@ -40,7 +40,7 @@ function Edit({ postData, updatePostData }) {
     const updatedPosts = updatingValues(parseInt(editId), title, postBody);
     updatePostData(updatedPosts);
   };
-
+  
   return (
     <div className="AddDiv">
       {postData.map((post) => {

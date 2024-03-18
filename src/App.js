@@ -66,7 +66,7 @@ function App() {
           </Link>
         </header>
         <Routes>
-          <Route path="/" element={<Posts postData={Data} />} />
+          <Route path="/" element={<Posts postData={Data} updatePostData={setData} />} />
           <Route path="/post/:postId" element={<Body postData={Data} />} />
           <Route path="/edit/:editId" element={<Edit postData={Data} updatePostData={setData} />} />
           <Route path="/Add" element={<Add postData={Data} updatePostData={setData} />} />
