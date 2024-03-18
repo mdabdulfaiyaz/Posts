@@ -4,7 +4,6 @@ import Posts from "./Posts.js";
 import Body from "./Body";
 import Add from "./Add";
 import Edit from "./Edit";
-
 import img from "./Assets/Batman.png";
 import "./App.css";
 import "./Posts.css";
@@ -50,8 +49,6 @@ function App() {
   ];
 
   const [Data, setData] = useState(PostData);
-
-  console.log(Data);
 
   return (
     <div className="container">
