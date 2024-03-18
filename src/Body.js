@@ -15,11 +15,10 @@ function Body({ postData }) {
         return postBody.id === parseInt(postId) ? (
           <div key={postBody.id}>
             <h3 className="h3">{postBody.title}</h3>
-            <p>{postBody.body}</p>
+            <p>{postBody.title}</p>
           </div>
         ) : null;
       })}
-     
     </div>
   );
 }

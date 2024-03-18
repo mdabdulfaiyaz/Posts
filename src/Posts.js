@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import "./Posts.css";
 
 function Posts({ postData, updatePostData }) {
-  
+  const getPostData = (postsId) => {
+    console.log(postsId);
+  };
 
   if (!postData) {
     return <div>Loading...</div>;

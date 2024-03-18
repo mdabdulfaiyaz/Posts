@@ -40,7 +40,7 @@ function Edit({ postData, updatePostData }) {
     const updatedPosts = updatingValues(parseInt(editId), title, postBody);
     updatePostData(updatedPosts);
   };
-  
+
   return (
     <div className="AddDiv">
       {postData.map((post) => {
